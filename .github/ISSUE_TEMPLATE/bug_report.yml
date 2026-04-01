@@ -1,0 +1,32 @@
+name: Bug report
+description: Report a bug or incorrect behavior.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Describe the bug clearly and briefly.
+      placeholder: The generated output is missing the issue closing line.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Share the command or input that reproduces the issue.
+      placeholder: |
+        1. Run `oss-helper ...`
+        2. Observe the output
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+      placeholder: I expected the generated markdown to include...
+    validations:
+      required: true
+
