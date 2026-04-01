@@ -105,5 +105,36 @@ def project_blurb(name: str, audience: str, problem: str, solution: str) -> None
     click.echo(_clean_block(blurb))
 
 
+@main.command("changelog-entry")
+@click.option("--version", required=True, help="Version number, such as 0.2.0.")
+@click.option(
+    "--change",
+    "changes",
+    multiple=True,
+    required=True,
+    help="A release highlight bullet. Pass more than once for multiple items.",
+)
+def changelog_entry(version: str, changes: tuple[str, ...]) -> None:
+    """Generate a simple changelog section."""
+    lines = [f"## {version}", ""]
+    lines.extend(f"- {change}" for change in changes)
+    click.echo("\n".join(lines))
+
+
+@main.command("contributor-welcome")
+@click.option("--name", help="Contributor name or handle.")
+@click.option("--next-step", required=True, help="What they should do next.")
+def contributor_welcome(name: str | None, next_step: str) -> None:
+    """Generate a friendly first-response message for a contributor."""
+    greeting = f"Thanks for the contribution, {name}." if name else "Thanks for the contribution."
+    body = f"""
+    {greeting}
+
+    I appreciate you taking the time to help improve the project.
+    {next_step}
+    """
+    click.echo(_clean_block(body))
+
+
 if __name__ == "__main__":
     main()

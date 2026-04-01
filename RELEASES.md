@@ -32,3 +32,14 @@ This is the first public release of `oss-helper-cli`.
 The project is intentionally small and focused. The current goal is to build a practical CLI for repeated open source writing tasks such as PR descriptions, issue replies, and short project summaries.
 ```
 
+## v0.2.0
+
+Expanded the project toward day-to-day maintainer workflows.
+
+Highlights:
+
+- added `changelog-entry` for release notes and changelog drafting
+- added `contributor-welcome` for friendly contributor follow-up messages
+- added pytest coverage for CLI commands
+- added GitHub Actions CI across multiple Python versions
+- improved package metadata for a more complete public release

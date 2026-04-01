@@ -10,3 +10,9 @@ All notable changes to this project will be documented in this file.
 - added `project-blurb` command
 - added README, MIT license, and contribution guide
 
+## Unreleased
+
+- added `changelog-entry` command
+- added `contributor-welcome` command
+- added pytest coverage for CLI commands
+- added GitHub Actions CI

@@ -11,6 +11,8 @@ The first version focuses on 3 common tasks:
 - generate a pull request template
 - generate a short issue triage reply
 - generate a concise project blurb
+- generate changelog entries
+- generate friendly contributor follow-up messages
 
 The project is intentionally small. The goal is to provide practical building blocks that can grow over time into a broader toolkit for open source maintenance.
 
@@ -96,6 +98,27 @@ oss-helper project-blurb \
   --solution "small CLI templates for PRs, issue replies, and short project summaries"
 ```
 
+### `changelog-entry`
+
+Generate a short changelog section for a release.
+
+```bash
+oss-helper changelog-entry \
+  --version "0.2.0" \
+  --change "Added CI" \
+  --change "Added release drafting support"
+```
+
+### `contributor-welcome`
+
+Generate a friendly maintainer reply for a new contribution.
+
+```bash
+oss-helper contributor-welcome \
+  --name "@newdev" \
+  --next-step "I will review this in the next round."
+```
+
 ## Project goals
 
 - stay simple enough for one person to maintain
@@ -117,7 +140,10 @@ Contributions are welcome. If you want to help, start here:
 
 - [Contributing Guide](./CONTRIBUTING.md)
 
+## Quality checks
+
+The repository includes a GitHub Actions workflow that installs the package and runs the test suite on multiple Python versions.
+
 ## License
 
 MIT
-
