@@ -1,20 +1,34 @@
 # oss-helper-cli
 
-`oss-helper-cli` is a small command-line tool for solo open source contributors and maintainers.
+`oss-helper-cli` is a lightweight command-line tool for drafting common open source workflow text.
 
-It helps with common writing tasks around contribution workflows:
+It is built for solo maintainers, first-time contributors, and small teams who want a faster way to write the repetitive parts of open source work without hiding everything behind a black box.
 
-- draft a pull request body
-- draft a friendly issue reply
-- draft a short project pitch or application blurb
+## What it does
 
-The goal is to stay lightweight, transparent, and easy to extend.
+The first version focuses on 3 common tasks:
 
-## Why this project exists
+- generate a pull request template
+- generate a short issue triage reply
+- generate a concise project blurb
 
-Open source work often includes a lot of repeated writing: PR descriptions, issue triage replies, and short project summaries. This tool turns those common tasks into reusable templates so contributors can move faster without sounding robotic.
+The project is intentionally small. The goal is to provide practical building blocks that can grow over time into a broader toolkit for open source maintenance.
 
-## Install
+## Why this exists
+
+A lot of open source work is not coding. It is repeated writing:
+
+- PR summaries
+- issue replies
+- project descriptions
+- release notes
+- contributor onboarding text
+
+This project turns those repeated writing tasks into reusable CLI helpers that are transparent, scriptable, and easy to improve.
+
+## Installation
+
+For local development:
 
 ```bash
 python3 -m venv .venv
@@ -22,15 +36,17 @@ source .venv/bin/activate
 pip install -e .
 ```
 
-## Usage
-
-Show help:
+Then run:
 
 ```bash
 oss-helper --help
 ```
 
-Generate a PR template:
+## Commands
+
+### `pr-template`
+
+Generate a lightweight pull request body.
 
 ```bash
 oss-helper pr-template \
@@ -40,32 +56,66 @@ oss-helper pr-template \
   --test "./.venv/bin/sphinx-build -E -W -b dirhtml docs docs/_build/dirhtml"
 ```
 
-Generate an issue reply:
+Example output:
+
+```md
+## Title
+
+Add glossary to command line reference docs
+
+## Summary
+
+Adds a glossary section for ambiguous terms used across the docs.
+Closes #3077
+
+## Testing
+
+- `./.venv/bin/sphinx-build -E -W -b dirhtml docs docs/_build/dirhtml`
+```
+
+### `issue-reply`
+
+Generate a short issue triage response.
 
 ```bash
 oss-helper issue-reply \
   --tone warm \
   --status investigating \
-  --next-step "I am reproducing this locally and will post an update once I confirm the root cause."
+  --next-step "I am reproducing this locally and will share a concrete update once I confirm the root cause."
 ```
 
-Generate a short project pitch:
+### `project-blurb`
+
+Generate a short project introduction.
 
 ```bash
 oss-helper project-blurb \
   --name "oss-helper-cli" \
   --audience "solo maintainers and new contributors" \
   --problem "repetitive contribution writing work" \
-  --solution "small CLI templates for PRs, issue replies, and project summaries"
+  --solution "small CLI templates for PRs, issue replies, and short project summaries"
 ```
+
+## Project goals
+
+- stay simple enough for one person to maintain
+- produce output that is easy to copy into real workflows
+- keep the generated text editable and human-readable
+- grow through practical contributor use cases instead of feature bloat
 
 ## Roadmap
 
-- add markdown output file support
-- add reusable config profiles
-- add release notes and changelog helpers
-- add contributor onboarding templates
-- add GitHub issue and PR metadata ingestion
+- write generated output to markdown files
+- support reusable template profiles
+- add changelog and release note helpers
+- add contributor onboarding text generators
+- add optional GitHub metadata input
+
+## Contributing
+
+Contributions are welcome. If you want to help, start here:
+
+- [Contributing Guide](./CONTRIBUTING.md)
 
 ## License
 
