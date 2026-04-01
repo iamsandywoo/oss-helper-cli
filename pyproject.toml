@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oss-helper-cli"
+version = "0.1.0"
+description = "A tiny CLI for drafting common open source workflow text."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+  {name = "Sandy Woo"},
+]
+dependencies = [
+  "click>=8.1,<9",
+]
+
+[project.scripts]
+oss-helper = "oss_helper_cli.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
